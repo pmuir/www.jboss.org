@@ -1,9 +1,10 @@
 // Sprites
+@import "compass/utilities/sprites";
 
 @import "sprites/_product-logos.scss";
 @include all-product-logos-sprites(true);
 
-@import "sprites/_get-involved.scss";
+@import "design/get-involved/*.png";
 @include all-get-involved-sprites;
 
 @import "sprites/_get-started.scss";
