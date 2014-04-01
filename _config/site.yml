@@ -35,6 +35,7 @@ profiles:
   staging: 
     <<: *profile
     base_url: http://www-stg.jboss.org
+    redhat_metrics_base_url: http://www.stage.redhat.com
     deploy:
       <<: *deploy
       path: /stg_htdocs/www-stg
@@ -43,6 +44,7 @@ profiles:
     <<: *profile
     base_url: http://www-beta.jboss.org
     dcp_base_url: http://dcp.jboss.org
+    redhat_metrics_base_url: http://www.stage.redhat.com
     require_tag: true
     deploy:
       <<: *deploy
