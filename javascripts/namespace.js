@@ -24,3 +24,5 @@ app.templates.buzzTemplate = '#{partial "buzz_template.html.slim"}';
   FastClick variable for faster tapping on touch devices
 */
 app.fastClick = false;
+
+app.production = #{site.profile == "production"}

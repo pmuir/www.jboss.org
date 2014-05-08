@@ -170,8 +170,30 @@ app.mktg_ops.init = function() {
  */
 
 app.mktg_ops.track = function(src) {
-  _gaq.push(['_trackEvent', 'outbound', src.title, src.href]);
+  app.mktg_ops._track(src.title, src.href);
+};
+
+app.mktg_ops._track = function(title, href) {
+  _gaq.push(['_trackEvent', 'outbound', title, href]);
   // Eloqua will track the link and perform a redirect
-  _elq.trackOutboundLink(src);
+  // &&
+  // The value of the eloqua GUID from the cookie
+  var elqGUID = '';
+  $.ajax({
+    url: 'https://s1795.t.eloqua.com/e/f2',
+    type: 'POST',
+    data: {
+      elqSiteID: '1795',
+      elqFormName: app.production ? "jboss-org-integration" : "jboss-org-integration-sandbox",
+      elqCustomerGUID: elqGUID,
+      A_ElqVisitorGuid: elqGUID,
+      //C_EmailAddress: john.smith@acme.com
+      A_TacticID_Internal: '701600000InternalTactic',
+      A_TacticID_External: '701600000ExternalTactic',
+      A_OfferID: 'Consumed through click',
+      A_RedirectURL: href
+    }
+
+  });
 };
 
