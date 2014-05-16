@@ -305,7 +305,7 @@ app.init = function() {
    */
   $( 'div[itemprop="video"]' ).each( function() {
     var type = $( this ).attr( 'data-searchisko-type' );
-    var id = $( this ).attr( 'data-searchisko-id' );
+    var id = '41145588'; //$( this ).attr( 'data-searchisko-id' );
     app.dcp.resolveContributorsForBlock( type, id, $( this ),  app.templates.socialContributorTemplate );
   });
 
