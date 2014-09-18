@@ -1,9 +1,10 @@
 ---
 layout: base
 body_class: fullbleed
+primary_nav_hidden: true
 ---
 
-.wide.wide-hero==hero
+.wide.wide-hero(style="background-image: url(#{cdn(page.hero_image)})")==hero
 
 - unless nav_bar.nil?
   == nav_bar
